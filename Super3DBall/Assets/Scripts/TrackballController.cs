@@ -55,7 +55,12 @@ public class TrackballController : MonoBehaviour
         Vector3 dragVector = currentTouchPosition - previousTouchPosition;
         //float dragForce = (dragVector.magnitude / trackBallRadiusScreenPosition.magnitude) / Time.deltaTime;
         dragVector = new Vector3(dragVector.x, 0f, dragVector.y);
-        ball.GiveForce(dragVector);
+        float dragMagnitude = dragVector.magnitude;
+
+        if(dragMagnitude <= 0)
+            ball.Brake(0.99f);
+        else
+            ball.GiveForce(dragVector);
     }
 
     void CopyRotation(Quaternion rotation)

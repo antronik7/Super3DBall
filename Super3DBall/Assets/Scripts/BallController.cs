@@ -23,4 +23,9 @@ public class BallController : MonoBehaviour
     {
         rBody.AddForce(force);
     }
+
+    public void Brake(float brakePercentage)
+    {
+        rBody.velocity = rBody.velocity * brakePercentage;
+    }
 }
