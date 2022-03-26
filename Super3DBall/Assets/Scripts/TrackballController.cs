@@ -34,7 +34,7 @@ public class TrackballController : MonoBehaviour
 
     void CheckInputs()
     {
-        if (Input.GetMouseButtonDown(0) && IsTochingTrackball())
+        if (tochingTrackball == false && Input.GetMouseButton(0) && IsTochingTrackball())
             OnStartTochingTrackball();
         else if (tochingTrackball && (Input.GetMouseButtonUp(0) || IsTochingTrackball() == false))
             OnStopTochingTrackball();
